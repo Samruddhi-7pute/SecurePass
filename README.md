@@ -117,6 +117,4 @@ No installation, no dependencies, no setup required.
 ## License
 This project is intended for educational and personal use only.
 
----
-
 **Stay secure. Generate locally. Trust your browser.**
