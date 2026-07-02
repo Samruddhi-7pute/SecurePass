@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SecurePass — Password Security Toolkit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+
+  <div class="bg-gradient"></div>
+  <div class="bg-grid"></div>
+  <div class="glow glow-a"></div>
+  <div class="glow glow-b"></div>
+  <div class="glow glow-c"></div>
+
+  <div id="top"></div>
+  <nav>
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+        stroke-linejoin="round">
+        <path d="M12 2 4 5v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V5l-8-3z" />
+        <path d="M9 12l2 2 4-4" />
+      </svg>
+      Secure<span>Pass</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#top">Home</a></li>
+      <li><a href="#dashboard">Features</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <section class="hero">
+      <div class="hero-copy fade-in">
+        <div class="hero-eyebrow"><span class="dot"></span> Password security toolkit</div>
+        <h1>Generate strong passwords.<br>Analyze their security.<br><span class="accent">Protect your digital
+            identity.</span></h1>
+        <p class="lead">SecurePass creates high-entropy passwords locally in your browser, then breaks down exactly how
+          resistant each one is to brute-force, dictionary, and credential-stuffing attacks — no server, no tracking, no
+          data ever leaving your device.</p>
+        <div class="badges">
+          <div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2 4 5v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V5l-8-3z" />
+            </svg>100% local generation</div>
+          <div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 12h4l3 8 4-16 3 8h4" />
+            </svg>High entropy</div>
+          <div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2 4 5v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V5l-8-3z" />
+              <line x1="5" y1="19" x2="19" y2="5" />
+            </svg>Zero data collection</div>
+        </div>
+      </div>
+      <div class="hero-art fade-in" style="animation-delay:.15s;">
+        <div class="ring"></div>
+        <div class="ring2"></div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path d="M12 2 4 5v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V5l-8-3z" />
+          <path d="M9 12l2 2 4-4" />
+        </svg>
+      </div>
+    </section>
+
+    <section id="dashboard">
+      <div class="dash-grid">
+        <div class="panel fade-in">
+          <div class="panel-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="10" rx="2" />
+              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+            </svg>
+            <h2 class="panel-title">Generator</h2>
+          </div>
+
+          <div class="term" id="termBox">
+            <div class="term-row">
+              <input id="passwordOut" type="text" readonly placeholder="press generate to begin" />
+              <div class="term-actions">
+                <button class="icon-btn" id="copyBtn" title="Copy" aria-label="Copy password">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <rect x="9" y="9" width="12" height="12" rx="2" />
+                    <path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1" />
+                  </svg>
+                </button>
+                <button class="icon-btn" id="qrBtn" title="Show QR code" aria-label="Show QR code">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <rect x="3" y="3" width="7" height="7" rx="1" />
+                    <rect x="14" y="3" width="7" height="7" rx="1" />
+                    <rect x="3" y="14" width="7" height="7" rx="1" />
+                    <path d="M14 14h3v3h-3zM20 14v3M14 20h3M20 20v.01" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="typing-line hidden" id="typingLine">&nbsp;</div>
+          </div>
+
+          <div id="qrPanel" class="qr-wrap" style="display:none;">
+            <div id="qrcode"></div>
+            <div class="qr-copy">Scan to load this password onto another device — handy for shared Wi-Fi credentials.
+              Rendered locally; nothing is sent anywhere.</div>
+          </div>
+
+          <div class="control-block">
+            <div class="control-head"><label for="lengthSlider">Password length</label><span class="len-val"
+                id="lengthVal">16</span></div>
+            <input type="range" id="lengthSlider" min="4" max="48" value="16" step="1" />
+          </div>
+
+          <div class="control-block">
+            <div class="toggles">
+              <div class="toggle active" data-key="upper">
+                <div><span class="t-label">Uppercase</span><span class="t-sample">A B C</span></div>
+                <div class="switch"></div>
+              </div>
+              <div class="toggle active" data-key="lower">
+                <div><span class="t-label">Lowercase</span><span class="t-sample">a b c</span></div>
+                <div class="switch"></div>
+              </div>
+              <div class="toggle active" data-key="numbers">
+                <div><span class="t-label">Numbers</span><span class="t-sample">0 1 2</span></div>
+                <div class="switch"></div>
+              </div>
+              <div class="toggle active" data-key="symbols">
+                <div><span class="t-label">Symbols</span><span class="t-sample">! @ #</span></div>
+                <div class="switch"></div>
+              </div>
+            </div>
+            <div class="toggle" data-key="excludeSimilar" style="margin-top:10px;">
+              <div><span class="t-label">Exclude similar characters</span><span class="t-sample">skip i l 1 L o O
+                  0</span></div>
+              <div class="switch"></div>
+            </div>
+          </div>
+
+          <button class="generate-btn" id="generateBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path
+                d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+            </svg>
+            Generate password
+          </button>
+        </div>
+
+        <div class="panel fade-in" style="animation-delay:.1s;">
+          <div class="panel-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M3 3v18h18" />
+              <path d="M7 15l4-6 3 3 5-8" />
+            </svg>
+            <h2 class="panel-title">Strength analysis</h2>
+          </div>
+
+          <div class="stat-grid">
+            <div class="stat-card">
+              <div class="stat-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2 4 5v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V5l-8-3z" />
+                </svg><span class="stat-label">Strength</span></div>
+              <div class="stat-value" id="strengthVal">—</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 12h4l3 8 4-16 3 8h4" />
+                </svg><span class="stat-label">Entropy</span></div>
+              <div class="stat-value" id="entropyVal">— bits</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M12 7v5l3 3" />
+                </svg><span class="stat-label">Crack time</span></div>
+              <div class="stat-value" id="crackVal" style="font-size:13px;">—</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2 4 5v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V5l-8-3z" />
+                  <path d="M9 12l2 2 4-4" />
+                </svg><span class="stat-label">Attack resistance</span></div>
+              <div class="stat-value" id="resistSummary" style="font-size:13px;">—</div>
+            </div>
+          </div>
+
+          <div class="bar-track">
+            <div class="bar-fill" id="barFill"></div>
+          </div>
+
+          <div class="resist-list" id="resistList"></div>
+
+          <div class="tip-card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M12 2a7 7 0 0 0-4 12.7V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.3A7 7 0 0 0 12 2z" />
+              <path d="M9 21h6" />
+            </svg>
+            <span id="tipText">Never reuse the same password across different accounts.</span>
+          </div>
+
+          <div class="leak-note" id="leakNote">This password was generated locally in your browser and has never been
+            transmitted anywhere. For real-world reuse checks, run it through a dedicated breach-database service before
+            adopting it.</div>
+        </div>
+      </div>
+
+      <div class="dash-grid secondary">
+        <div class="panel fade-in">
+          <div class="panel-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="4" rx="1" />
+              <rect x="3" y="10" width="18" height="4" rx="1" />
+              <rect x="3" y="16" width="18" height="4" rx="1" />
+            </svg>
+            <h2 class="panel-title">Bulk generation</h2>
+          </div>
+          <div class="bulk-btns">
+            <div class="bulk-btn" data-n="10">×10</div>
+            <div class="bulk-btn" data-n="20">×20</div>
+            <div class="bulk-btn" data-n="50">×50</div>
+            <div class="bulk-btn" data-n="100">×100</div>
+          </div>
+          <div class="bulk-list" id="bulkList">
+            <div class="empty-note">Generate a batch to fill a list of accounts, WiFi guests, or test accounts.</div>
+          </div>
+          <button class="export-btn" id="exportBulkBtn">Export as CSV</button>
+        </div>
+
+        <div class="panel fade-in" style="animation-delay:.1s;">
+          <div class="history-head-row">
+            <div class="panel-head" style="margin:0;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7v5l3 3" />
+              </svg>
+              <h2 class="panel-title" style="margin:0;">Password history</h2>
+            </div>
+            <button class="clear-link" id="clearHistoryBtn">clear all</button>
+          </div>
+          <div class="history-list" id="historyList">
+            <div class="empty-note">Passwords you generate one at a time are logged here, stored only in this browser.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer id="about">
+    <div class="container footer-inner">
+      <div>
+        <div class="footer-brand">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M12 2 4 5v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V5l-8-3z" />
+          </svg>
+          SecurePass
+        </div>
+        <div class="footer-tagline">Secure Password Generator<br>
+          
+        </div>
+      </div>
+      <div class="footer-meta">
+        Designed with Security & Simplicity in Mind<br>
+        Generate Strong & Secure Passwords<br>
+        &copy; 2026 SecurePass | v2.0.0
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast">Copied to clipboard</div>
+
+  <script src="js/app.js"></script>
+
+</body>
+
+</html>
